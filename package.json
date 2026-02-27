@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "test": "jest",
-    "test:ci": "jest --ci --forceExit",
+    "test:ci": "NODE_ENV=test jest --ci --forceExit",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
   },
