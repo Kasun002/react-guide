@@ -1,53 +1,60 @@
 import Link from "next/link";
+import TimerDemo from "./TimerDemo";
 
-export const metadata = { title: "Example 4 – UserGuide" };
+export const metadata = { title: "Countdown Timer + Typewriter – Interview Guide" };
+
+const CONCEPTS = [
+  "useRef",
+  "useEffect cleanup",
+  "stale closures",
+  "functional updates",
+  "interval / timeout",
+];
 
 export default function Example4Page() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
+
+      {/* Header */}
       <div className="rounded-xl bg-emerald-600 px-8 py-10 text-white">
-        <p className="mb-1 text-sm font-medium text-emerald-200">Section 4</p>
-        <h1 className="text-3xl font-bold">Example 4</h1>
-        <p className="mt-2 text-emerald-100">Deep dive into advanced topics in section four.</p>
-      </div>
-
-      <div className="grid gap-6 md:grid-cols-2">
-        <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-          <h2 className="mb-3 text-lg font-semibold text-gray-900">Overview</h2>
-          <p className="text-sm leading-relaxed text-gray-600">
-            Ready to go deeper? This section covers advanced concepts and techniques that
-            power users and developers rely on to push the boundaries of what is possible.
-          </p>
-        </div>
-        <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-          <h2 className="mb-3 text-lg font-semibold text-gray-900">Key Points</h2>
-          <ul className="space-y-2 text-sm text-gray-600">
-            <li className="flex items-start gap-2">
-              <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-600" />
-              Advanced configuration options
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-600" />
-              Performance optimisation tips
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-600" />
-              Debugging and troubleshooting
-            </li>
-          </ul>
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <p className="mb-1 text-sm font-medium text-emerald-200">Example 4 · 30–35 min</p>
+            <h1 className="text-3xl font-bold">Countdown Timer + Typewriter</h1>
+            <p className="mt-1 text-emerald-200">useRef · useEffect cleanup · Stale Closures</p>
+          </div>
+          <span className="rounded-full bg-white/20 px-3 py-1 text-xs font-semibold text-white">
+            Senior Level
+          </span>
         </div>
       </div>
 
-      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-        <h2 className="mb-4 text-lg font-semibold text-gray-900">Content</h2>
-        <p className="text-sm leading-relaxed text-gray-600">
-          Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed
-          quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque
-          porro quisquam est qui dolorem ipsum quia dolor sit amet.
+      {/* Question */}
+      <div className="rounded-xl border border-amber-200 bg-amber-50 px-6 py-5">
+        <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-amber-600">
+          The Question
+        </p>
+        <p className="text-sm leading-relaxed text-gray-700">
+          &quot;Build a countdown timer that supports pause and resume, and a typewriter
+          that cycles through strings character-by-character. Both must clean up their
+          intervals on unmount and avoid stale closure bugs when updating state.&quot;
         </p>
       </div>
 
-      <div className="flex items-center justify-between">
+      {/* Concept tags */}
+      <div className="flex flex-wrap gap-2">
+        {CONCEPTS.map(tag => (
+          <span key={tag} className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">
+            {tag}
+          </span>
+        ))}
+      </div>
+
+      {/* Live demo */}
+      <TimerDemo />
+
+      {/* Nav */}
+      <div className="flex items-center justify-between border-t border-gray-200 pt-4">
         <Link href="/example-3" className="text-sm text-gray-500 hover:text-gray-900">
           ← Example 3
         </Link>

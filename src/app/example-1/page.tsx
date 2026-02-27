@@ -15,12 +15,13 @@ const CONCEPTS = [
 export default function Example1Page() {
   return (
     <div className="space-y-6">
-
       {/* Header */}
       <div className="rounded-xl bg-indigo-600 px-8 py-10 text-white">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
-            <p className="mb-1 text-sm font-medium text-indigo-200">Example 1 · 30–40 min</p>
+            <p className="mb-1 text-sm font-medium text-indigo-200">
+              Example 1 · 30–40 min
+            </p>
             <h1 className="text-3xl font-bold">Large Data Table</h1>
             <p className="mt-1 text-indigo-200">Search · Sort · Pagination</p>
           </div>
@@ -36,15 +37,16 @@ export default function Example1Page() {
           The Question
         </p>
         <p className="text-sm leading-relaxed text-gray-700">
-          "Build a data table that loads 500 user records, supports live search across
-          name / email / role, column sorting, and pagination with a configurable page size.
-          The search input must stay responsive even while filtering large datasets."
+          &quot;Build a data table that loads 500 user records, supports live search
+          across name / email / role, column sorting, and pagination with a
+          configurable page size. The search input must stay responsive even
+          while filtering large datasets.&quot;
         </p>
       </div>
 
       {/* React concept tags */}
       <div className="flex flex-wrap gap-2">
-        {CONCEPTS.map(tag => (
+        {CONCEPTS.map((tag) => (
           <span
             key={tag}
             className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700"

@@ -71,7 +71,7 @@ export default function Navbar() {
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-600">
             <span className="text-sm font-bold text-white">U</span>
           </div>
-          <span className="text-lg font-semibold text-gray-900">Interview Guide</span>
+          <span className="text-lg font-semibold text-gray-900">React Guide</span>
         </Link>
 
         {/* ── Desktop nav ── */}
@@ -81,7 +81,7 @@ export default function Navbar() {
           <div
             ref={rulerRef}
             aria-hidden
-            className="invisible absolute flex items-center gap-1 whitespace-nowrap"
+            className="invisible absolute flex items-center justify-content gap-1 whitespace-nowrap w-full"
           >
             {tabs.map((item) => (
               <span key={item.href} className="rounded-md px-4 py-2 text-sm font-medium">
@@ -91,7 +91,7 @@ export default function Navbar() {
           </div>
 
           {/* Visible tabs */}
-          <nav className="flex items-center gap-1">
+          <nav className="flex items-center justify-end gap-1">
             {visibleItems.map((item) => (
               <Link
                 key={item.href}

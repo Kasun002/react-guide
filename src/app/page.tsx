@@ -12,7 +12,7 @@ const examples = [
   {
     number: 2,
     title: "Example 2",
-    description: "Explore concepts and patterns in the second section.",
+    description: "Custom useFetch hook — AbortController, useReducer, cache & race conditions.",
     href: "/example-2",
     color: "bg-violet-50 border-violet-200",
     iconColor: "bg-violet-600",
@@ -20,7 +20,7 @@ const examples = [
   {
     number: 3,
     title: "Example 3",
-    description: "Hands-on walkthrough of the third use case.",
+    description: "Compound Tabs — Context API, no prop drilling, ARIA & keyboard nav.",
     href: "/example-3",
     color: "bg-sky-50 border-sky-200",
     iconColor: "bg-sky-600",
@@ -28,7 +28,7 @@ const examples = [
   {
     number: 4,
     title: "Example 4",
-    description: "Deep dive into advanced topics in section four.",
+    description: "Countdown timer + typewriter — useRef, stale closures, effect cleanup.",
     href: "/example-4",
     color: "bg-emerald-50 border-emerald-200",
     iconColor: "bg-emerald-600",
@@ -36,10 +36,42 @@ const examples = [
   {
     number: 5,
     title: "Example 5",
-    description: "Final section covering best practices and next steps.",
+    description: "Recursive file tree — clean recursion, per-node state, memo & stable keys.",
     href: "/example-5",
     color: "bg-amber-50 border-amber-200",
     iconColor: "bg-amber-600",
+  },
+  {
+    number: 6,
+    title: "Example 6",
+    description: "Data polling — live table, visibility pause, silent refresh & cleanup.",
+    href: "/example-6",
+    color: "bg-rose-50 border-rose-200",
+    iconColor: "bg-rose-600",
+  },
+  {
+    number: 7,
+    title: "Example 7",
+    description: "Todo list — useCallback + memo combo, stable refs, when NOT to use either.",
+    href: "/example-7",
+    color: "bg-purple-50 border-purple-200",
+    iconColor: "bg-purple-600",
+  },
+  {
+    number: 8,
+    title: "Example 8",
+    description: "Redux Toolkit cart — createSlice, Immer mutations, useSelector & useDispatch.",
+    href: "/example-8",
+    color: "bg-indigo-50 border-indigo-200",
+    iconColor: "bg-indigo-700",
+  },
+  {
+    number: 9,
+    title: "Example 9",
+    description: "Context API cart — useReducer, split context pattern, custom hooks vs Redux.",
+    href: "/example-9",
+    color: "bg-teal-50 border-teal-200",
+    iconColor: "bg-teal-700",
   },
 ];
 
@@ -55,7 +87,7 @@ export default function HomePage() {
           User Guide
         </h1>
         <p className="mx-auto mb-8 max-w-xl text-lg text-indigo-100">
-          A comprehensive guide with five detailed examples to help you get
+          A comprehensive guide with nine detailed examples to help you get
           started quickly and confidently.
         </p>
         <Link
