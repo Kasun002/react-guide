@@ -72,8 +72,8 @@ export default function Example9Page() {
           <Link href="/example-8" className="text-sm text-gray-500 hover:text-gray-900">
             ← Example 8
           </Link>
-          <Link href="/" className="rounded-lg bg-teal-700 px-5 py-2 text-sm font-medium text-white hover:bg-teal-800">
-            Home →
+          <Link href="/example-10" className="rounded-lg bg-teal-700 px-5 py-2 text-sm font-medium text-white hover:bg-teal-800">
+            Example 10 →
           </Link>
         </div>
       </div>

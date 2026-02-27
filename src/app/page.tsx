@@ -73,6 +73,14 @@ const examples = [
     color: "bg-teal-50 border-teal-200",
     iconColor: "bg-teal-700",
   },
+  {
+    number: 10,
+    title: "Example 10",
+    description: "Server-Sent Events — EventSource, named events, useRef handle, useEffect cleanup.",
+    href: "/example-10",
+    color: "bg-violet-50 border-violet-200",
+    iconColor: "bg-violet-700",
+  },
 ];
 
 export default function HomePage() {
@@ -87,7 +95,7 @@ export default function HomePage() {
           React Guide
         </h1>
         <p className="mx-auto mb-8 max-w-xl text-lg text-indigo-100">
-          A comprehensive guide with nine detailed examples to help you get
+          A comprehensive guide with ten detailed examples to help you get
           started quickly and confidently.
         </p>
         <Link
