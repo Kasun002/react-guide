@@ -1,6 +1,6 @@
 # React Interview Guide
 
-A hands-on Next.js app covering nine senior-level React interview topics, each with a live interactive demo and inline explanations.
+A hands-on Next.js app covering ten senior-level React interview topics, each with a live interactive demo and inline explanations.
 
 **Live site:** https://user-guide.vercel.app
 
@@ -19,6 +19,19 @@ A hands-on Next.js app covering nine senior-level React interview topics, each w
 | 7 | Todo + `useCallback` | `memo` combo, stable refs, when NOT to use it |
 | 8 | Redux Toolkit Cart | `createSlice`, Immer mutations, `useSelector`, `useDispatch` |
 | 9 | Context API Cart | `useReducer`, split-context pattern, custom hooks vs Redux |
+| 10 | Server-Sent Events | `EventSource`, named events, `useRef` handle, `useEffect` cleanup |
+
+---
+
+## Tests
+
+Every example ships with unit tests (Jest + React Testing Library). All 127 tests must pass before Vercel will build and deploy.
+
+```bash
+npm test              # interactive watch mode
+npm run test:ci       # CI run (used by Vercel build gate)
+npm run test:coverage # coverage report
+```
 
 ---
 
@@ -40,12 +53,13 @@ Open [http://localhost:3000](http://localhost:3000).
 - **TypeScript**
 - **Tailwind CSS v4**
 - **Redux Toolkit** (Example 8)
+- **Jest 29 + React Testing Library** (127 tests across 12 suites)
 
 ---
 
 ## Deployment
 
-The site deploys automatically to **Vercel** on every push to `main`.
+The site deploys automatically to **Vercel** on every push to `main`. Tests run as part of the build — a failing test blocks the deployment.
 
 ### One-time Vercel setup
 
