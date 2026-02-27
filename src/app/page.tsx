@@ -84,7 +84,7 @@ export default function HomePage() {
           Welcome
         </p>
         <h1 className="mb-4 text-5xl font-bold leading-tight">
-          User Guide
+          React Guide
         </h1>
         <p className="mx-auto mb-8 max-w-xl text-lg text-indigo-100">
           A comprehensive guide with nine detailed examples to help you get

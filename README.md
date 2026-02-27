@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# React Interview Guide
 
-## Getting Started
+A hands-on Next.js app covering nine senior-level React interview topics, each with a live interactive demo and inline explanations.
 
-First, run the development server:
+**Live site:** https://kasun002.github.io/user-guide
+
+---
+
+## Examples
+
+| # | Topic | Key Concepts |
+|---|-------|-------------|
+| 1 | Large Data Table | `useDeferredValue`, `useMemo`, search / sort / pagination |
+| 2 | Custom `useFetch` Hook | `AbortController`, `useReducer`, cache, race conditions |
+| 3 | Compound Tabs | `createContext`, no prop drilling, ARIA, keyboard nav |
+| 4 | Countdown + Typewriter | `useRef`, stale closures, `useEffect` cleanup |
+| 5 | Recursive File Tree | Clean recursion, per-node state, `React.memo`, stable keys |
+| 6 | Data Polling | `setInterval`, visibility pause, silent refresh, cleanup |
+| 7 | Todo + `useCallback` | `memo` combo, stable refs, when NOT to use it |
+| 8 | Redux Toolkit Cart | `createSlice`, Immer mutations, `useSelector`, `useDispatch` |
+| 9 | Context API Cart | `useReducer`, split-context pattern, custom hooks vs Redux |
+
+---
+
+## Running Locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tech Stack
 
-## Learn More
+- **Next.js 16** (App Router)
+- **React 19**
+- **TypeScript**
+- **Tailwind CSS v4**
+- **Redux Toolkit** (Example 8)
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The site deploys automatically to **GitHub Pages** on every push to `main` via the workflow at `.github/workflows/deploy.yml`.
 
-## Deploy on Vercel
+The workflow:
+1. Installs dependencies with `npm ci`
+2. Runs `npm run build` with `NEXT_PUBLIC_BASE_PATH=/user-guide` — Next.js emits a fully static site to `out/`
+3. Adds `.nojekyll` so GitHub Pages serves the `_next/` assets correctly
+4. Uploads and deploys the `out/` directory
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### One-time GitHub setup
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Go to **Settings → Pages** in the repository
+2. Set **Source** to `GitHub Actions`
+3. Push to `main` — the workflow handles the rest
+
+### Local static build
+
+```bash
+npm run build   # generates out/
+npx serve out   # preview at http://localhost:3000
+```
