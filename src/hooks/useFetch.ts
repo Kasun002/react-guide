@@ -3,6 +3,9 @@ import { useEffect, useReducer, useRef } from "react";
 // Module-level cache — persists across mounts, shared between all useFetch calls
 const cache = new Map<string, unknown>();
 
+// Exported only for test isolation (clear between tests). Not public API.
+export const _testCache = cache;
+
 // ── State shape ───────────────────────────────────────────────────────────────
 
 type State<T> =
