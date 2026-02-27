@@ -4,7 +4,7 @@ const examples = [
   {
     number: 1,
     title: "Example 1",
-    description: "Introduction and overview of the first topic.",
+    description: "Large data table — search, sort, pagination, useDeferredValue & useMemo.",
     href: "/example-1",
     color: "bg-indigo-50 border-indigo-200",
     iconColor: "bg-indigo-600",
