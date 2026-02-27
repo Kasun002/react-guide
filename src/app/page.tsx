@@ -1,65 +1,99 @@
-import Image from "next/image";
+import Link from "next/link";
 
-export default function Home() {
+const examples = [
+  {
+    number: 1,
+    title: "Example 1",
+    description: "Introduction and overview of the first topic.",
+    href: "/example-1",
+    color: "bg-indigo-50 border-indigo-200",
+    iconColor: "bg-indigo-600",
+  },
+  {
+    number: 2,
+    title: "Example 2",
+    description: "Explore concepts and patterns in the second section.",
+    href: "/example-2",
+    color: "bg-violet-50 border-violet-200",
+    iconColor: "bg-violet-600",
+  },
+  {
+    number: 3,
+    title: "Example 3",
+    description: "Hands-on walkthrough of the third use case.",
+    href: "/example-3",
+    color: "bg-sky-50 border-sky-200",
+    iconColor: "bg-sky-600",
+  },
+  {
+    number: 4,
+    title: "Example 4",
+    description: "Deep dive into advanced topics in section four.",
+    href: "/example-4",
+    color: "bg-emerald-50 border-emerald-200",
+    iconColor: "bg-emerald-600",
+  },
+  {
+    number: 5,
+    title: "Example 5",
+    description: "Final section covering best practices and next steps.",
+    href: "/example-5",
+    color: "bg-amber-50 border-amber-200",
+    iconColor: "bg-amber-600",
+  },
+];
+
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div className="space-y-16">
+      {/* Hero */}
+      <section className="rounded-2xl bg-linear-to-br from-indigo-600 to-violet-600 px-10 py-20 text-center text-white">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-indigo-200">
+          Welcome
+        </p>
+        <h1 className="mb-4 text-5xl font-bold leading-tight">
+          User Guide
+        </h1>
+        <p className="mx-auto mb-8 max-w-xl text-lg text-indigo-100">
+          A comprehensive guide with five detailed examples to help you get
+          started quickly and confidently.
+        </p>
+        <Link
+          href="/example-1"
+          className="inline-block rounded-full bg-white px-8 py-3 text-sm font-semibold text-indigo-700 shadow transition hover:shadow-md hover:bg-indigo-50"
+        >
+          Get Started →
+        </Link>
+      </section>
+
+      {/* Cards */}
+      <section>
+        <h2 className="mb-6 text-2xl font-bold text-gray-900">Browse Examples</h2>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {examples.map((ex) => (
+            <Link
+              key={ex.href}
+              href={ex.href}
+              className={`group flex flex-col gap-4 rounded-xl border p-6 transition hover:-translate-y-0.5 hover:shadow-md ${ex.color}`}
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              <div
+                className={`flex h-10 w-10 items-center justify-center rounded-lg ${ex.iconColor} text-white text-sm font-bold`}
+              >
+                {ex.number}
+              </div>
+              <div>
+                <h3 className="mb-1 font-semibold text-gray-900 group-hover:text-indigo-700">
+                  {ex.title}
+                </h3>
+                <p className="text-sm text-gray-600">{ex.description}</p>
+              </div>
+              <span className="mt-auto text-sm font-medium text-indigo-600 group-hover:underline">
+                View →
+              </span>
+            </Link>
+          ))}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </section>
     </div>
   );
 }
