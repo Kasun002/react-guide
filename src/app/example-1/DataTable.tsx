@@ -7,9 +7,7 @@
 
 import { useState, useMemo, useDeferredValue, useEffect } from "react";
 import { generateUsers, type User } from "@/data/users";
-
-type SortKey = keyof User;
-type SortDir = "asc" | "desc";
+import { sortBy, filterUsers, pageRange, type SortDir, type SortKey } from "./dataTable.utils";
 
 const PAGE_SIZES = [10, 25, 50] as const;
 
@@ -21,24 +19,6 @@ const COLUMNS: { key: SortKey; label: string }[] = [
   { key: "status", label: "Status" },
   { key: "joined", label: "Joined" },
 ];
-
-// Outside component — no re-creation on every render
-function sortBy<T>(arr: T[], key: keyof T, dir: SortDir): T[] {
-  return [...arr].sort((a, b) => {
-    const cmp = a[key] < b[key] ? -1 : a[key] > b[key] ? 1 : 0;
-    return dir === "asc" ? cmp : -cmp;
-  });
-}
-
-function pageRange(current: number, total: number): (number | "...")[] {
-  if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
-  const list: (number | "...")[] = [1];
-  if (current > 3) list.push("...");
-  for (let p = Math.max(2, current - 1); p <= Math.min(total - 1, current + 1); p++) list.push(p);
-  if (current < total - 2) list.push("...");
-  list.push(total);
-  return list;
-}
 
 // ──────────────────────────────────────────────────────────────────────────────
 
@@ -80,13 +60,7 @@ export default function DataTable() {
   const { pageRows, totalFiltered, totalPages, safePage } = useMemo(() => {
     if (!rows) return { pageRows: [], totalFiltered: 0, totalPages: 0, safePage: 1 };
 
-    const q        = deferredQuery.trim().toLowerCase();
-    const filtered = q
-      ? rows.filter(r =>
-          r.name.toLowerCase().includes(q)  ||
-          r.email.toLowerCase().includes(q) ||
-          r.role.toLowerCase().includes(q))
-      : rows;
+    const filtered = filterUsers(rows, deferredQuery);
 
     const sorted   = sortBy(filtered, sortKey, sortDir);
     const pages    = Math.max(1, Math.ceil(sorted.length / pageSize));
