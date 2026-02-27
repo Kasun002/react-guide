@@ -2,7 +2,7 @@
 
 A hands-on Next.js app covering nine senior-level React interview topics, each with a live interactive demo and inline explanations.
 
-**Live site:** https://kasun002.github.io/user-guide
+**Live site:** https://user-guide.vercel.app
 
 ---
 
@@ -45,23 +45,13 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Deployment
 
-The site deploys automatically to **GitHub Pages** on every push to `main` via the workflow at `.github/workflows/deploy.yml`.
+The site deploys automatically to **Vercel** on every push to `main`.
 
-The workflow:
-1. Installs dependencies with `npm ci`
-2. Runs `npm run build` with `NEXT_PUBLIC_BASE_PATH=/user-guide` — Next.js emits a fully static site to `out/`
-3. Adds `.nojekyll` so GitHub Pages serves the `_next/` assets correctly
-4. Uploads and deploys the `out/` directory
+### One-time Vercel setup
 
-### One-time GitHub setup
+1. Go to [vercel.com](https://vercel.com) and sign in with GitHub
+2. Click **Add New → Project**
+3. Import the `user-guide` repository
+4. Leave all settings as default and click **Deploy**
 
-1. Go to **Settings → Pages** in the repository
-2. Set **Source** to `GitHub Actions`
-3. Push to `main` — the workflow handles the rest
-
-### Local static build
-
-```bash
-npm run build   # generates out/
-npx serve out   # preview at http://localhost:3000
-```
+Every subsequent push to `main` triggers a new deployment automatically. Vercel also creates preview deployments for pull requests.
