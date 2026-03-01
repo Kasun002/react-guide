@@ -96,10 +96,10 @@ export default function Example10Page() {
           ← Example 9
         </Link>
         <Link
-          href="/"
+          href="/example-11"
           className="rounded-lg bg-violet-700 px-5 py-2 text-sm font-medium text-white hover:bg-violet-800"
         >
-          Home →
+          Example 11 →
         </Link>
       </div>
     </div>

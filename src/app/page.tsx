@@ -81,6 +81,14 @@ const examples = [
     color: "bg-violet-50 border-violet-200",
     iconColor: "bg-violet-700",
   },
+  {
+    number: 11,
+    title: "Example 11",
+    description: "React Profiler API — onRenderCallback, actualDuration vs baseDuration, phases.",
+    href: "/example-11",
+    color: "bg-orange-50 border-orange-200",
+    iconColor: "bg-orange-600",
+  },
 ];
 
 export default function HomePage() {
